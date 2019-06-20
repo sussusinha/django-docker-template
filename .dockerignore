@@ -1,0 +1,9 @@
+
+# python virtualenv
+env/
+
+# sqlite3 db
+db.sqlite3
+
+# vscode settings
+.vscode
