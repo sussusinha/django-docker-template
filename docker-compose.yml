@@ -3,8 +3,27 @@ services:
 
   app:
     build: .
+    container_name: "autocusto_application"
     ports:
       - "3000:3000"
     volumes:
       - ".:/app"
-    
+    env_file:
+      - .env
+    depends_on:
+      - database
+
+  database:
+    image: "postgres:alpine"
+    container_name: "autocusto_postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "data:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+
+volumes:
+  data:

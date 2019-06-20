@@ -7,3 +7,9 @@ db.sqlite3
 
 # vscode settings
 .vscode
+
+# python pycache
+__pycache__
+
+# dotenv
+.env
